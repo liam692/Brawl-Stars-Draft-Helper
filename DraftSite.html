@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Brawl Stars Draft Simulator</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" type="image/png" href="Icons/8Bit.png">
+        <script src="brawlerInfo.js"></script>
+        <script src="websiteFunctions.js"></script>
+    </head>
+    <body style="background-color:rgb(7, 17, 25);">
+        <div class="wrapper">
+        <div class="header">
+            <p>Brawl Stars Drafting Helper</p>
+        </div>
+        <div id="left" class="left">
+            <p>Map:</p>
+            <p>Modifier:</p>
+        </div>
+        <div id="game-info" class="game-info">
+            <div class="right">
+                <img id="ban1" class="ban-picks" src="Icons/Default.png" onclick="removeBan(1)">
+                <img class="no-sign1" src="Icons/Banned.png">
+                <img id="ban2" class="ban-picks" src="Icons/Default.png" onclick="removeBan(2)">
+                <img class="no-sign2" src="Icons/Banned.png">
+                <img id="ban3" class="ban-picks" src="Icons/Default.png" onclick="removeBan(3)">
+                <img class="no-sign3" src="Icons/Banned.png">
+                <img id="ban4" class="ban-picks" src="Icons/Default.png" onclick="removeBan(4)">
+                <img class="no-sign4" src="Icons/Banned.png">
+                <img id="ban5" class="ban-picks" src="Icons/Default.png" onclick="removeBan(5)">
+                <img class="no-sign5" src="Icons/Banned.png">
+                <img id="ban6" class="ban-picks" src="Icons/Default.png" onclick="removeBan(6)">
+                <img class="no-sign6" src="Icons/Banned.png">
+                <button class="reset-bans" onclick="resetBans()">Reset Bans</button>
+            </div>
+            <div class="dropdowns">
+                <select id="maps" name="maps">
+                <option disabled selected value> --Select Map-- </option>
+                <option value="Belle's Rock">Belle's Rock</option>
+                <option value="Bridge Too Far">Bridge Too Far</option>
+                <option value="Canal Grande">Canal Grande</option>
+                <option value="Center Stage">Center Stage</option>
+                <option value="Double Swoosh">Double Swoosh</option>
+                <option value="Dueling Beetles">Dueling Beetles</option>
+                <option value="Flaring Phoenix">Flaring Phoenix</option>
+                <option value="Goldarm Gulch">Goldarm Gulch</option>
+                <option value="Hard Rock Mine">Hard Rock Mine</option>
+                <option value="Hideout">Hideout</option>
+                <option value="Hot Potato">Hot Potato</option>
+                <option value="Kaboom Canyon">Kaboom Canyon</option>
+                <option value="Last Stop">Last Stop</option>
+                <option value="Open Business">Open Business</option>
+                <option value="Out in the Open">Out in the Open</option>
+                <option value="Parallel Plays">Parallel Plays</option>
+                <option value="Penalty Kick">Penalty Kick</option>
+                <option value="Pinball Dreams">Pinball Dreams</option>
+                <option value="Ring of Fire">Ring of Fire</option>
+                <option value="Safe Zone">Safe Zone</option>
+                <option value="Shooting Star">Shooting Star</option>
+                <option value="Snake Prairie">Snake Prairie</option>
+                <option value="Triple Dribble">Triple Dribble</option>
+                <option value="Undermine">Undermine</option>
+            </select>
+            </div>
+            <div class="dropdowns">
+                <select name="modifiers" id="modifiers">
+                <option disabled selected value> --Select Modifier-- </option>
+                <option value="Classic">Classic</option>
+                <option value="Gadgets Galore">Gadgets Galore</option>
+                <option value="Quickfire">Quickfire</option> 
+                <!-- <option value="Timed Detonation">Timed Detonation</option> -->
+                <!-- <option value="Big Friend">Big Friend</option> -->
+                <!-- <option value="Barbed Ammo">Barbed Ammo</option> -->
+                <option value="Sick Beats">Sick Beats</option>
+                <!-- <option value="Healing Breeze">Healing Breeze</option> -->
+                <!-- <option value="Gotta Go Fast">Gotta Go Fast</option> -->
+                <!-- <option value="Super Bushy">Super Bushy</option> -->
+                <!-- <option value="Momentum">Momentum</option> -->
+                <!-- <option value="Second Wind">Second Wind</option> -->
+            </select>
+            </div>
+        </div>
+        <div>
+            <div id="left-2" class="left-2">
+                <p>Banned Brawlers:</p>
+                <p>(Choose up to 6)</p>
+            </div>
+            <div id="banned-brawlers" class="banned-brawlers">
+                <img class="ban" src="Icons/8Bit.png" onclick="changeImage(0)">
+                <img class="ban" src="Icons/Amber.png" onclick="changeImage(1)">
+                <img class="ban" src="Icons/Angelo.png" onclick="changeImage(2)">
+                <img class="ban" src="Icons/Ash.png" onclick="changeImage(3)">
+                <img class="ban" src="Icons/Barley.png" onclick="changeImage(4)">
+                <img class="ban" src="Icons/Bea.png" onclick="changeImage(5)">
+                <img class="ban" src="Icons/Belle.png" onclick="changeImage(6)">
+                <img class="ban" src="Icons/Berry.png" onclick="changeImage(7)">
+                <img class="ban" src="Icons/Bibi.png" onclick="changeImage(8)">
+                <img class="ban" src="Icons/Bo.png" onclick="changeImage(9)">
+                <img class="ban" src="Icons/Bonnie.png" onclick="changeImage(10)">
+                <img class="ban" src="Icons/Brock.png" onclick="changeImage(11)">
+                <img class="ban" src="Icons/Bull.png" onclick="changeImage(12)">
+                <img class="ban" src="Icons/Buster.png" onclick="changeImage(13)">
+                <img class="ban" src="Icons/Buzz.png" onclick="changeImage(14)">
+                <img class="ban" src="Icons/Byron.png" onclick="changeImage(15)">
+                <img class="ban" src="Icons/Carl.png" onclick="changeImage(16)">
+                <img class="ban" src="Icons/Charlie.png" onclick="changeImage(17)">
+                <img class="ban" src="Icons/Chester.png" onclick="changeImage(18)">
+                <img class="ban" src="Icons/Chuck.png" onclick="changeImage(19)">
+                <img class="ban" src="Icons/Clancy.png" onclick="changeImage(20)">
+                <div class="names">
+                    <div class="first-name">8-Bit</div>
+                    <div class="name">Amber</div>
+                    <div class="name">Angelo</div>
+                    <div class="name">Ash</div>
+                    <div class="name">Barley</div>
+                    <div class="name">Bea</div>
+                    <div class="name">Belle</div>
+                    <div class="name">Berry</div>
+                    <div class="name">Bibi</div>
+                    <div class="name">Bo</div>
+                    <div class="name">Bonnie</div>
+                    <div class="name">Brock</div>
+                    <div class="name">Bull</div>
+                    <div class="name">Buster</div>
+                    <div class="name">Buzz</div>
+                    <div class="name">Byron</div>
+                    <div class="name">Carl</div>
+                    <div class="name">Charlie</div>
+                    <div class="name">Chester</div>
+                    <div class="name">Chuck</div>
+                    <div class="name">Clancy</div>
+                </div>
+                <img class="ban" src="Icons/Colette.png" onclick="changeImage(21)">
+                <img class="ban" src="Icons/Colt.png" onclick="changeImage(22)">
+                <img class="ban" src="Icons/Cordelius.png" onclick="changeImage(23)">
+                <img class="ban" src="Icons/Crow.png" onclick="changeImage(24)">
+                <img class="ban" src="Icons/Darryl.png" onclick="changeImage(25)">
+                <img class="ban" src="Icons/Doug.png" onclick="changeImage(26)">
+                <img class="ban" src="Icons/Draco.png" onclick="changeImage(27)">
+                <img class="ban" src="Icons/Dynamike.png" onclick="changeImage(28)">
+                <img class="ban" src="Icons/Edgar.png" onclick="changeImage(29)">
+                <img class="ban" src="Icons/Emz.png" onclick="changeImage(30)">
+                <img class="ban" src="Icons/Eve.png" onclick="changeImage(31)">
+                <img class="ban" src="Icons/Fang.png" onclick="changeImage(32)">
+                <img class="ban" src="Icons/Frank.png" onclick="changeImage(33)">
+                <img class="ban" src="Icons/Gale.png" onclick="changeImage(34)">
+                <img class="ban" src="Icons/Gene.png" onclick="changeImage(35)">
+                <img class="ban" src="Icons/Gray.png" onclick="changeImage(36)">
+                <img class="ban" src="Icons/Griff.png" onclick="changeImage(37)">
+                <img class="ban" src="Icons/Grom.png" onclick="changeImage(38)">
+                <img class="ban" src="Icons/Gus.png" onclick="changeImage(39)">
+                <img class="ban" src="Icons/Hank.png" onclick="changeImage(40)">
+                <img class="ban" src="Icons/Jacky.png" onclick="changeImage(41)">
+                <div class="names">
+                    <div class="first-name">Colette</div>
+                    <div class="name">Colt</div>
+                    <div class="name">Cordelius</div>
+                    <div class="name">Crow</div>
+                    <div class="name">Darryl</div>
+                    <div class="name">Doug</div>
+                    <div class="name">Draco</div>
+                    <div class="name">Dynamike</div>
+                    <div class="name">Edgar</div>
+                    <div class="name">Emz</div>
+                    <div class="name">Eve</div>
+                    <div class="name">Fang</div>
+                    <div class="name">Frank</div>
+                    <div class="name">Gale</div>
+                    <div class="name">Gene</div>
+                    <div class="name">Gray</div>
+                    <div class="name">Griff</div>
+                    <div class="name">Grom</div>
+                    <div class="name">Gus</div>
+                    <div class="name">Hank</div>
+                    <div class="name">Jacky</div>
+                </div>
+                <img class="ban" src="Icons/Janet.png" onclick="changeImage(42)">
+                <img class="ban" src="Icons/Jessie.png" onclick="changeImage(43)">
+                <img class="ban" src="Icons/Kenji.png" onclick="changeImage(44)">
+                <img class="ban" src="Icons/Kit.png" onclick="changeImage(45)">
+                <img class="ban" src="Icons/Larry.png" onclick="changeImage(46)">
+                <img class="ban" src="Icons/Leon.png" onclick="changeImage(47)">
+                <img class="ban" src="Icons/Lily.png" onclick="changeImage(48)">
+                <img class="ban" src="Icons/Lola.png" onclick="changeImage(49)">
+                <img class="ban" src="Icons/Lou.png" onclick="changeImage(50)">
+                <img class="ban" src="Icons/Maisie.png" onclick="changeImage(51)">
+                <img class="ban" src="Icons/Mandy.png" onclick="changeImage(52)">
+                <img class="ban" src="Icons/Max.png" onclick="changeImage(53)">
+                <img class="ban" src="Icons/Meg.png" onclick="changeImage(54)">
+                <img class="ban" src="Icons/Melodie.png" onclick="changeImage(55)">
+                <img class="ban" src="Icons/Mico.png" onclick="changeImage(56)">
+                <img class="ban" src="Icons/Moe.png" onclick="changeImage(57)">
+                <img class="ban" src="Icons/Mortis.png" onclick="changeImage(58)">
+                <img class="ban" src="Icons/MrP.png" onclick="changeImage(59)">
+                <img class="ban" src="Icons/Nani.png" onclick="changeImage(60)">
+                <img class="ban" src="Icons/Nita.png" onclick="changeImage(61)">
+                <img class="ban" src="Icons/Otis.png" onclick="changeImage(62)">
+                <div class="names">
+                    <div class="first-name">Janet</div>
+                    <div class="name">Jessie</div>
+                    <div class="name">Kenji</div>
+                    <div class="name">Kit</div>
+                    <div class="name">Larry</div>
+                    <div class="name">Leon</div>
+                    <div class="name">Lily</div>
+                    <div class="name">Lola</div>
+                    <div class="name">Lou</div>
+                    <div class="name">Maisie</div>
+                    <div class="name">Mandy</div>
+                    <div class="name">Max</div>
+                    <div class="name">Meg</div>
+                    <div class="name">Melodie</div>
+                    <div class="name">Mico</div>
+                    <div class="name">Moe</div>
+                    <div class="name">Mortis</div>
+                    <div class="name">Mr. P</div>
+                    <div class="name">Nani</div>
+                    <div class="name">Nita</div>
+                    <div class="name">Otis</div>
+                </div>
+                <img class="ban" src="Icons/Pam.png" onclick="changeImage(63)">
+                <img class="ban" src="Icons/Pearl.png" onclick="changeImage(64)">
+                <img class="ban" src="Icons/Penny.png" onclick="changeImage(65)">
+                <img class="ban" src="Icons/Piper.png" onclick="changeImage(66)">
+                <img class="ban" src="Icons/Poco.png" onclick="changeImage(67)">
+                <img class="ban" src="Icons/Primo.png" onclick="changeImage(68)">
+                <img class="ban" src="Icons/Rico.png" onclick="changeImage(69)">
+                <img class="ban" src="Icons/Rosa.png" onclick="changeImage(70)">
+                <img class="ban" src="Icons/RT.png" onclick="changeImage(71)">
+                <img class="ban" src="Icons/Ruffs.png" onclick="changeImage(72)">
+                <img class="ban" src="Icons/Sam.png" onclick="changeImage(73)">
+                <img class="ban" src="Icons/Sandy.png" onclick="changeImage(74)">
+                <img class="ban" src="Icons/Shelly.png" onclick="changeImage(75)">
+                <img class="ban" src="Icons/Spike.png" onclick="changeImage(76)">
+                <img class="ban" src="Icons/Sprout.png" onclick="changeImage(77)">
+                <img class="ban" src="Icons/Squeak.png" onclick="changeImage(78)">
+                <img class="ban" src="Icons/Stu.png" onclick="changeImage(79)">
+                <img class="ban" src="Icons/Surge.png" onclick="changeImage(80)">
+                <img class="ban" src="Icons/Tara.png" onclick="changeImage(81)">
+                <img class="ban" src="Icons/Tick.png" onclick="changeImage(82)">
+                <img class="ban" src="Icons/Willow.png" onclick="changeImage(83)">
+                <div class="names">
+                    <div class="first-name">Pam</div>
+                    <div class="name">Pearl</div>
+                    <div class="name">Penny</div>
+                    <div class="name">Piper</div>
+                    <div class="name">Poco</div>
+                    <div class="name">Primo</div>
+                    <div class="name">Rico</div>
+                    <div class="name">Rosa</div>
+                    <div class="name">R-T</div>
+                    <div class="name">Ruffs</div>
+                    <div class="name">Sam</div>
+                    <div class="name">Sandy</div>
+                    <div class="name">Shelly</div>
+                    <div class="name">Spike</div>
+                    <div class="name">Sprout</div>
+                    <div class="name">Squeak</div>
+                    <div class="name">Stu</div>
+                    <div class="name">Surge</div>
+                    <div class="name">Tara</div>
+                    <div class="name">Tick</div>
+                    <div class="name">Willow</div>
+                </div>
+            </div>
+            <div id="bottom-box" class="bottom-box">
+                <p class="first-pick">First Pick:</p>
+                <div class="switch">
+                    <input type="checkbox", id="switch", class="checkbox" />
+                    <label for="switch", class="toggle">
+                </div>        
+                <button class="continue" onclick="checkContinue()">Continue</button>
+            </div>
+            <div id="error-box" class="error-box">
+                <p id="error-message" class="error-message"></p>
+            </div>
+            <div id="left-3" class="left-3" hidden="hidden">
+                <p>Suggestions:</p>
+            </div>
+            <div id="suggestions" class="suggestions-box" hidden="hidden">
+                <img id="suggestions1" class="suggestions" src="Icons/Default.png">
+                <img id="suggestions2" class="suggestions" src="Icons/Default.png">
+                <img id="suggestions3" class="suggestions" src="Icons/Default.png">
+                <img id="suggestions4" class="suggestions" src="Icons/Default.png">
+                <img id="suggestions5" class="suggestions" src="Icons/Default.png">
+                <div id="scores1" class="scores1">
+                    <p id="score1">1</p>
+                </div>
+                <div id="scores2" class="scores2">
+                    <p id="score2">2</p>
+                </div>
+                <div id="scores3" class="scores3">
+                    <p id="score3">3</p>
+                </div>
+                <div id="scores4" class="scores4">
+                    <p id="score4">4</p>
+                </div>
+                <div id="scores5" class="scores5">
+                    <p id="score5">5</p>
+                </div>
+            </div>
+            <div id="draft" class="draft" hidden="hidden"> 
+                <img id="pick1" class="pick1" src="Icons/Blue.png">
+                <img id="pick2" class="pick2" src="Icons/Blue.png">
+                <img id="pick3" class="pick3" src="Icons/Blue.png">
+                <img id="vs" class="vs" src="Icons/VS.png">
+                <img id="pick4" class="pick4" src="Icons/Red.png">
+                <img id="pick5" class="pick5" src="Icons/Red.png">
+                <img id="pick6" class="pick6" src="Icons/Red.png">
+                <button class="reset-draft" onclick="resetDraft()">Reset Picks</button>
+                <button class="start-over" onclick="location.reload()">Start Over</button>
+            </div>
+            <div id="picked-brawlers" hidden="true" class="left-2">
+                <p>Picked Brawlers:</p>
+                <p>(Choose up to 6)</p>
+            </div>
+            <div id="pick-selections" hidden="hidden" class="pick-selections">
+                <img class="ban" src="Icons/8Bit.png" onclick="changeDraft(0)">
+                <img class="ban" src="Icons/Amber.png" onclick="changeDraft(1)">
+                <img class="ban" src="Icons/Angelo.png" onclick="changeDraft(2)">
+                <img class="ban" src="Icons/Ash.png" onclick="changeDraft(3)">
+                <img class="ban" src="Icons/Barley.png" onclick="changeDraft(4)">
+                <img class="ban" src="Icons/Bea.png" onclick="changeDraft(5)">
+                <img class="ban" src="Icons/Belle.png" onclick="changeDraft(6)">
+                <img class="ban" src="Icons/Berry.png" onclick="changeDraft(7)">
+                <img class="ban" src="Icons/Bibi.png" onclick="changeDraft(8)">
+                <img class="ban" src="Icons/Bo.png" onclick="changeDraft(9)">
+                <img class="ban" src="Icons/Bonnie.png" onclick="changeDraft(10)">
+                <img class="ban" src="Icons/Brock.png" onclick="changeDraft(11)">
+                <img class="ban" src="Icons/Bull.png" onclick="changeDraft(12)">
+                <img class="ban" src="Icons/Buster.png" onclick="changeDraft(13)">
+                <img class="ban" src="Icons/Buzz.png" onclick="changeDraft(14)">
+                <img class="ban" src="Icons/Byron.png" onclick="changeDraft(15)">
+                <img class="ban" src="Icons/Carl.png" onclick="changeDraft(16)">
+                <img class="ban" src="Icons/Charlie.png" onclick="changeDraft(17)">
+                <img class="ban" src="Icons/Chester.png" onclick="changeDraft(18)">
+                <img class="ban" src="Icons/Chuck.png" onclick="changeDraft(19)">
+                <img class="ban" src="Icons/Clancy.png" onclick="changeDraft(20)">
+                <div class="names">
+                    <div class="first-name">8-Bit</div>
+                    <div class="name">Amber</div>
+                    <div class="name">Angelo</div>
+                    <div class="name">Ash</div>
+                    <div class="name">Barley</div>
+                    <div class="name">Bea</div>
+                    <div class="name">Belle</div>
+                    <div class="name">Berry</div>
+                    <div class="name">Bibi</div>
+                    <div class="name">Bo</div>
+                    <div class="name">Bonnie</div>
+                    <div class="name">Brock</div>
+                    <div class="name">Bull</div>
+                    <div class="name">Buster</div>
+                    <div class="name">Buzz</div>
+                    <div class="name">Byron</div>
+                    <div class="name">Carl</div>
+                    <div class="name">Charlie</div>
+                    <div class="name">Chester</div>
+                    <div class="name">Chuck</div>
+                    <div class="name">Clancy</div>
+                </div>
+                <img class="ban" src="Icons/Colette.png" onclick="changeDraft(21)">
+                <img class="ban" src="Icons/Colt.png" onclick="changeDraft(22)">
+                <img class="ban" src="Icons/Cordelius.png" onclick="changeDraft(23)">
+                <img class="ban" src="Icons/Crow.png" onclick="changeDraft(24)">
+                <img class="ban" src="Icons/Darryl.png" onclick="changeDraft(25)">
+                <img class="ban" src="Icons/Doug.png" onclick="changeDraft(26)">
+                <img class="ban" src="Icons/Draco.png" onclick="changeDraft(27)">
+                <img class="ban" src="Icons/Dynamike.png" onclick="changeDraft(28)">
+                <img class="ban" src="Icons/Edgar.png" onclick="changeDraft(29)">
+                <img class="ban" src="Icons/Emz.png" onclick="changeDraft(30)">
+                <img class="ban" src="Icons/Eve.png" onclick="changeDraft(31)">
+                <img class="ban" src="Icons/Fang.png" onclick="changeDraft(32)">
+                <img class="ban" src="Icons/Frank.png" onclick="changeDraft(33)">
+                <img class="ban" src="Icons/Gale.png" onclick="changeDraft(34)">
+                <img class="ban" src="Icons/Gene.png" onclick="changeDraft(35)">
+                <img class="ban" src="Icons/Gray.png" onclick="changeDraft(36)">
+                <img class="ban" src="Icons/Griff.png" onclick="changeDraft(37)">
+                <img class="ban" src="Icons/Grom.png" onclick="changeDraft(38)">
+                <img class="ban" src="Icons/Gus.png" onclick="changeDraft(39)">
+                <img class="ban" src="Icons/Hank.png" onclick="changeDraft(40)">
+                <img class="ban" src="Icons/Jacky.png" onclick="changeDraft(41)">
+                <div class="names">
+                    <div class="first-name">Colette</div>
+                    <div class="name">Colt</div>
+                    <div class="name">Cordelius</div>
+                    <div class="name">Crow</div>
+                    <div class="name">Darryl</div>
+                    <div class="name">Doug</div>
+                    <div class="name">Draco</div>
+                    <div class="name">Dynamike</div>
+                    <div class="name">Edgar</div>
+                    <div class="name">Emz</div>
+                    <div class="name">Eve</div>
+                    <div class="name">Fang</div>
+                    <div class="name">Frank</div>
+                    <div class="name">Gale</div>
+                    <div class="name">Gene</div>
+                    <div class="name">Gray</div>
+                    <div class="name">Griff</div>
+                    <div class="name">Grom</div>
+                    <div class="name">Gus</div>
+                    <div class="name">Hank</div>
+                    <div class="name">Jacky</div>
+                </div>
+                <img class="ban" src="Icons/Janet.png" onclick="changeDraft(42)">
+                <img class="ban" src="Icons/Jessie.png" onclick="changeDraft(43)">
+                <img class="ban" src="Icons/Kenji.png" onclick="changeDraft(44)">
+                <img class="ban" src="Icons/Kit.png" onclick="changeDraft(45)">
+                <img class="ban" src="Icons/Larry.png" onclick="changeDraft(46)">
+                <img class="ban" src="Icons/Leon.png" onclick="changeDraft(47)">
+                <img class="ban" src="Icons/Lily.png" onclick="changeDraft(48)">
+                <img class="ban" src="Icons/Lola.png" onclick="changeDraft(49)">
+                <img class="ban" src="Icons/Lou.png" onclick="changeDraft(50)">
+                <img class="ban" src="Icons/Maisie.png" onclick="changeDraft(51)">
+                <img class="ban" src="Icons/Mandy.png" onclick="changeDraft(52)">
+                <img class="ban" src="Icons/Max.png" onclick="changeDraft(53)">
+                <img class="ban" src="Icons/Meg.png" onclick="changeDraft(54)">
+                <img class="ban" src="Icons/Melodie.png" onclick="changeDraft(55)">
+                <img class="ban" src="Icons/Mico.png" onclick="changeDraft(56)">
+                <img class="ban" src="Icons/Moe.png" onclick="changeDraft(57)">
+                <img class="ban" src="Icons/Mortis.png" onclick="changeDraft(58)">
+                <img class="ban" src="Icons/MrP.png" onclick="changeDraft(59)">
+                <img class="ban" src="Icons/Nani.png" onclick="changeDraft(60)">
+                <img class="ban" src="Icons/Nita.png" onclick="changeDraft(61)">
+                <img class="ban" src="Icons/Otis.png" onclick="changeDraft(62)">
+                <div class="names">
+                    <div class="first-name">Janet</div>
+                    <div class="name">Jessie</div>
+                    <div class="name">Kenji</div>
+                    <div class="name">Kit</div>
+                    <div class="name">Larry</div>
+                    <div class="name">Leon</div>
+                    <div class="name">Lily</div>
+                    <div class="name">Lola</div>
+                    <div class="name">Lou</div>
+                    <div class="name">Maisie</div>
+                    <div class="name">Mandy</div>
+                    <div class="name">Max</div>
+                    <div class="name">Meg</div>
+                    <div class="name">Melodie</div>
+                    <div class="name">Mico</div>
+                    <div class="name">Moe</div>
+                    <div class="name">Mortis</div>
+                    <div class="name">Mr. P</div>
+                    <div class="name">Nani</div>
+                    <div class="name">Nita</div>
+                    <div class="name">Otis</div>
+                </div>
+                <img class="ban" src="Icons/Pam.png" onclick="changeDraft(63)">
+                <img class="ban" src="Icons/Pearl.png" onclick="changeDraft(64)">
+                <img class="ban" src="Icons/Penny.png" onclick="changeDraft(65)">
+                <img class="ban" src="Icons/Piper.png" onclick="changeDraft(66)">
+                <img class="ban" src="Icons/Poco.png" onclick="changeDraft(67)">
+                <img class="ban" src="Icons/Primo.png" onclick="changeDraft(68)">
+                <img class="ban" src="Icons/Rico.png" onclick="changeDraft(69)">
+                <img class="ban" src="Icons/Rosa.png" onclick="changeDraft(70)">
+                <img class="ban" src="Icons/RT.png" onclick="changeDraft(71)">
+                <img class="ban" src="Icons/Ruffs.png" onclick="changeDraft(72)">
+                <img class="ban" src="Icons/Sam.png" onclick="changeDraft(73)">
+                <img class="ban" src="Icons/Sandy.png" onclick="changeDraft(74)">
+                <img class="ban" src="Icons/Shelly.png" onclick="changeDraft(75)">
+                <img class="ban" src="Icons/Spike.png" onclick="changeDraft(76)">
+                <img class="ban" src="Icons/Sprout.png" onclick="changeDraft(77)">
+                <img class="ban" src="Icons/Squeak.png" onclick="changeDraft(78)">
+                <img class="ban" src="Icons/Stu.png" onclick="changeDraft(79)">
+                <img class="ban" src="Icons/Surge.png" onclick="changeDraft(80)">
+                <img class="ban" src="Icons/Tara.png" onclick="changeDraft(81)">
+                <img class="ban" src="Icons/Tick.png" onclick="changeDraft(82)">
+                <img class="ban" src="Icons/Willow.png" onclick="changeDraft(83)">
+                <div class="names">
+                    <div class="first-name">Pam</div>
+                    <div class="name">Pearl</div>
+                    <div class="name">Penny</div>
+                    <div class="name">Piper</div>
+                    <div class="name">Poco</div>
+                    <div class="name">Primo</div>
+                    <div class="name">Rico</div>
+                    <div class="name">Rosa</div>
+                    <div class="name">R-T</div>
+                    <div class="name">Ruffs</div>
+                    <div class="name">Sam</div>
+                    <div class="name">Sandy</div>
+                    <div class="name">Shelly</div>
+                    <div class="name">Spike</div>
+                    <div class="name">Sprout</div>
+                    <div class="name">Squeak</div>
+                    <div class="name">Stu</div>
+                    <div class="name">Surge</div>
+                    <div class="name">Tara</div>
+                    <div class="name">Tick</div>
+                    <div class="name">Willow</div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
