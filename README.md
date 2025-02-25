@@ -1,4 +1,5 @@
 Brawl Stars Drafting Helper
+
 By: Liam Hickey
 
 Overview - 
